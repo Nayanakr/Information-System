@@ -15,4 +15,10 @@ urlpatterns = [
     path('employees/add/', views.add_employee, name='add_employee'),
     path('employees/edit/<int:id>/', views.edit_employee, name='edit_employee'),
     path('employees/delete/<int:id>/', views.delete_employee, name='delete_employee'),
+
+     # Shop URLs
+    path('shops/', views.shop_list, name='shop_list'),
+    path('shops/add/', views.add_shop, name='add_shop'),
+    path('shops/edit/<int:id>/', views.edit_shop, name='edit_shop'),
+    path('shops/delete/<int:id>/', views.delete_shop, name='delete_shop'),
 ]
