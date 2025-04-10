@@ -7,7 +7,15 @@ def customer_list(request):
     customers = Customer.objects.all()
     return render(request, 'customers.html', {'customers': customers})
 
-
+def add_customer(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        phone = request.POST['phone']
+        purchases = request.POST['purchases']
+        feedback = request.POST['feedback']
+        Customer.objects.create(name=name, phone=phone, purchases=purchases, feedback=feedback)
+        return redirect('customer_list')
+    return render(request, 'add_customer.html')
 
 def edit_customer(request, id):  # ✅ Ensure the function has 'id' as an argument
     customer = get_object_or_404(Customer, id=id)
