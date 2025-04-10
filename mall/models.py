@@ -10,14 +10,6 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
-class Employee(models.Model):
-    name = models.CharField(max_length=255)
-    position = models.CharField(max_length=100)
-    salary = models.DecimalField(max_digits=10, decimal_places=2)
-    shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
 
 class Shop(models.Model):
     name = models.CharField(max_length=255)
