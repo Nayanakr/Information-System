@@ -52,19 +52,7 @@ def add_employee(request):
     shops = Shop.objects.all()
     return render(request, 'add_employee.html', {'shops': shops})
 
-def edit_employee(request, id):  # ✅ Accept 'id' as an argument
-    employee = get_object_or_404(Employee, id=id)
-    shops = Shop.objects.all()
 
-    if request.method == "POST":
-        employee.name = request.POST["name"]
-        employee.position = request.POST["position"]
-        employee.salary = request.POST["salary"]
-        employee.shop_id = request.POST["shop"]
-        employee.save()
-        return redirect("/employees/")  # Redirect to the employee list after saving
-
-    return render(request, "edit_employee.html", {"employee": employee, "shops": shops})
 
 def delete_employee(request, id):  # ✅ Match the URL pattern parameter
     employee = get_object_or_404(Employee, id=id)
