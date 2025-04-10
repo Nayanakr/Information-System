@@ -17,7 +17,18 @@ def add_customer(request):
         return redirect('customer_list')
     return render(request, 'add_customer.html')
 
+def edit_customer(request, id):  # ✅ Ensure the function has 'id' as an argument
+    customer = get_object_or_404(Customer, id=id)
 
+    if request.method == "POST":
+        customer.name = request.POST.get("name", customer.name)
+        customer.phone = request.POST.get("phone", customer.phone)
+        customer.purchases = request.POST.get("purchases", customer.purchases)
+        customer.feedback = request.POST.get("feedback", customer.feedback)
+        customer.save()
+        return redirect("/customers/")  # Redirect back to the customer list
+
+    return render(request, "edit_customer.html", {"customer": customer})
 
 def delete_customer(request, customer_id):  # ✅ Use 'customer_id' to match the URL
     customer = get_object_or_404(Customer, id=customer_id)
