@@ -75,16 +75,6 @@ def shop_list(request):
     shops = Shop.objects.all()
     return render(request, 'shops.html', {'shops': shops})
 
-def add_shop(request):
-    if request.method == "POST":
-        name = request.POST['name']
-        owner = request.POST['owner']
-        category = request.POST['category']
-        contact = request.POST['contact']
-        rent = request.POST['rent']
-        Shop.objects.create(name=name, owner=owner, category=category, contact=contact, rent=rent)
-        return redirect('shop_list')
-    return render(request, 'add_shop.html')
 
 def edit_shop(request, id):  # ✅ Use 'id' instead of 'shop_id'
     shop = get_object_or_404(Shop, id=id)
