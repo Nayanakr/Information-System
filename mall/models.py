@@ -19,4 +19,13 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
+class Shop(models.Model):
+    name = models.CharField(max_length=255)
+    owner = models.CharField(max_length=255)
+    category = models.CharField(max_length=100)
+    contact = models.CharField(max_length=15)
+    rent = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
