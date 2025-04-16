@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Customer(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=)
     phone = models.CharField(max_length=15)
     purchases = models.TextField()
     feedback = models.TextField()
