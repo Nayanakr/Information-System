@@ -20,7 +20,7 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
-class shop(models.Model):
+class Shop(models.Model):
     name = models.CharField(max_length=255)
     owner = models.CharField(max_length=255)
     category = models.CharField(max_length=100)
