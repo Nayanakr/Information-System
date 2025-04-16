@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import model
 
 
 class Customer(models.Model):
