@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Customer(models.Model):
-    name = models.CharField(max_length=)
+    name = models.CharField(max_length=255)
     phone = models.CharField(max_length=15)
     purchases = models.TextField()
     feedback = models.TextField()
@@ -20,7 +20,7 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
-class Shop(models.Model):
+class shop(models.Model):
     name = models.CharField(max_length=255)
     owner = models.CharField(max_length=255)
     category = models.CharField(max_length=100)
