@@ -8,7 +8,7 @@ class Customer(models.Model):
     feedback = models.TextField()
 
     def __str__(self):
-        return self.name
+        
 
 class Employee(models.Model):
     name = models.CharField(max_length=255)
