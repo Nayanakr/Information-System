@@ -17,7 +17,7 @@ def add_customer(request):
         return redirect('customer_list')
     return render(request, 'add_customer.html')
 
-def edit_customer(request, id):  # ✅ Ensure the function has 'id' as an argument
+def edit_customer(request, id): 
     customer = get_object_or_404(Customer, id=id)
 
     if request.method == "POST":
@@ -30,7 +30,7 @@ def edit_customer(request, id):  # ✅ Ensure the function has 'id' as an argume
 
     return render(request, "edit_customer.html", {"customer": customer})
 
-def delete_customer(request, customer_id):  # ✅ Use 'customer_id' to match the URL
+def delete_customer(request, customer_id):  
     customer = get_object_or_404(Customer, id=customer_id)
     customer.delete()
     return redirect('/customers/')  # Redirect to customer list after deletion
@@ -52,7 +52,7 @@ def add_employee(request):
     shops = Shop.objects.all()
     return render(request, 'add_employee.html', {'shops': shops})
 
-def edit_employee(request, id):  # ✅ Accept 'id' as an argument
+def edit_employee(request, id):  
     employee = get_object_or_404(Employee, id=id)
     shops = Shop.objects.all()
 
@@ -66,7 +66,7 @@ def edit_employee(request, id):  # ✅ Accept 'id' as an argument
 
     return render(request, "edit_employee.html", {"employee": employee, "shops": shops})
 
-def delete_employee(request, id):  # ✅ Match the URL pattern parameter
+def delete_employee(request, id):  
     employee = get_object_or_404(Employee, id=id)
     employee.delete()
     return redirect('employee_list')  # Redirect to the employee list page
@@ -76,7 +76,7 @@ def shop_list(request):
     return render(request, 'shops.html', {'shops': shops})
 
 
-def edit_shop(request, id):  # ✅ Use 'id' instead of 'shop_id'
+def edit_shop(request, id): 
     shop = get_object_or_404(Shop, id=id)
 
     if request.method == 'POST':
@@ -100,7 +100,7 @@ def edit_shop(request, id):  # ✅ Use 'id' instead of 'shop_id'
 
     return render(request, 'edit_shop.html', {'shop': shop})
 
-def delete_shop(request, id):  # ✅ Use 'id' instead of 'shop_id'
+def delete_shop(request, id):  
     shop = get_object_or_404(Shop, id=id)
     shop.delete()
     return redirect('shop_list')  # Redirect to the shop list page
